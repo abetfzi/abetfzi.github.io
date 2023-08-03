@@ -29,6 +29,8 @@
         <input type="button" value="Submit" onclick="submitForm()">
         
         <table id="dataTable">
+
+        <div id="output"></div>
             <tr>
                 <th>Ime</th>
                 <th>Broj prolaza</th>
@@ -49,6 +51,23 @@
     
     
     <script>
+
+            const outputDiv = document.getElementById("output");
+
+    function submitInput() {
+        const inputField = document.getElementById("inputField");
+        const inputValue = inputField.value;
+
+        if (inputValue.trim() !== "") {
+            const newEntry = document.createElement("div");
+            newEntry.textContent = inputValue;
+            outputDiv.appendChild(newEntry);
+        }
+
+        inputField.value = "";
+    }
+
+        
     let totalEntries = 0;
     let manualCounterValue = 0;
     let timerInterval;
